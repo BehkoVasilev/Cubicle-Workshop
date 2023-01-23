@@ -11,6 +11,7 @@ class Cube {
     };
 
     async save(cube) {
+        this.id = db.cubes[db.cubes.length-1].id + 1;
         db.cubes.push(cube);
         const jsonData = JSON.stringify(db, null, 2);
         await fs.writeFile(path.resolve(__dirname, '../db.json'), jsonData);

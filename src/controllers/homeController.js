@@ -8,3 +8,7 @@ exports.getHomeController = (req, res) => {
 exports.getAboutController = (req, res) => {
     res.render('about');
 };
+
+exports.getErrorPage = (req, res) => {
+    res.render('404');
+};
