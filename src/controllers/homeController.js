@@ -1,5 +1,8 @@
+const db = require('../db.json')
+
 exports.getHomeController = (req, res) => {
-    res.render("index")
+    console.log(db.cubes);
+    res.render("index", {cubes: db.cubes})
 };
 
 exports.getAboutController = (req, res) => {

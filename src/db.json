@@ -29,20 +29,10 @@
       "difficultyLevel": 3
     },
     {
-      "name": {
-        "name": "Test1",
-        "description": "test",
-        "imageUrl": "test",
-        "difficultyLevel": "1"
-      }
-    },
-    {
-      "name": {
-        "name": "asd",
-        "description": "asd",
-        "imageUrl": "asd",
-        "difficultyLevel": "1"
-      }
+      "name": "Test1",
+      "description": "test",
+      "imageUrl": "test",
+      "difficultyLevel": "1"
     }
   ]
 }
