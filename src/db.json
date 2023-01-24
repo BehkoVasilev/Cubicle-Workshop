@@ -32,29 +32,36 @@
       "name": "MERCUSYS",
       "description": "very interesting cube for experts",
       "imageUrl": "https://www.reviewgeek.com/p/uploads/2022/02/81d51289.png",
-      "difficultyLevel": "5",
+      "difficultyLevel": 5,
       "id": 5
     },
     {
       "name": "Hard cube",
       "description": "very hard",
       "imageUrl": "https://engineerine.com/wp-content/webp-express/webp-images/uploads/2022/12/image-264.png.webp",
-      "difficultyLevel": "6",
+      "difficultyLevel": 5,
       "id": 6
     },
     {
       "name": "impossible cube ",
       "description": "test",
       "imageUrl": "https://engineerine.com/wp-content/webp-express/webp-images/uploads/2022/12/image-263.png.webp",
-      "difficultyLevel": "6",
+      "difficultyLevel": 6,
       "id": 7
     },
     {
       "name": "black cube",
       "description": "some description",
       "imageUrl": "https://engineerine.com/wp-content/webp-express/webp-images/uploads/2022/12/image-270.png.webp",
-      "difficultyLevel": "4",
+      "difficultyLevel": 4,
       "id": 8
+    },
+    {
+      "name": "Test1",
+      "description": "test",
+      "imageUrl": "",
+      "difficultyLevel": 3,
+      "id": 9
     }
   ]
 }
