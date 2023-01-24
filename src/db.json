@@ -48,6 +48,13 @@
       "imageUrl": "https://engineerine.com/wp-content/webp-express/webp-images/uploads/2022/12/image-263.png.webp",
       "difficultyLevel": "6",
       "id": 7
+    },
+    {
+      "name": "black cube",
+      "description": "some description",
+      "imageUrl": "https://engineerine.com/wp-content/webp-express/webp-images/uploads/2022/12/image-270.png.webp",
+      "difficultyLevel": "4",
+      "id": 8
     }
   ]
 }
