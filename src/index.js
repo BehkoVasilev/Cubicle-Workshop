@@ -1,5 +1,6 @@
 const express = require('express');
 const config = require('./config/config');
+const initDatabase = require('./config/initDatabase');
 const setupViewEngine = require('./config/viewEngine');
 // require('./config/viewEngine')(app);
 const router = require('./routes');
@@ -11,4 +12,7 @@ app.use(express.static("src/public"));
 app.use(express.urlencoded({ extended: false }))
 app.use(router);
 
-app.listen(config.PORT, () => console.log(`Server is running on port ${config.PORT}`));
+initDatabase()
+    .then(() => app.listen(config.PORT, () => console.log(`Server is running on port ${config.PORT}`)))
+    .catch((err) => console.error(err.message))
+

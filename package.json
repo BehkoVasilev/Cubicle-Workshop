@@ -4,7 +4,8 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.9.0"
   },
   "name": "cubicle-workshop",
   "description": "",
