@@ -1,12 +1,13 @@
-const db = require('../db.json')
+const Cube = require('../models/Cube')
 
-exports.getHomeController = (req, res) => {
+exports.getHomeController = async (req, res) => {
     let { search, from, to } = req.query;
     from = Number(from);
     to = Number(to);
 
-    let cubes = db.cubes;
+    let cubes = await Cube.find().lean(); //Under the hood, after executing a query, Mongoose converts the query results from POJOs to Mongoose documents. If you turn on the lean option, Mongoose skips this step.
 
+    //TODO: use db filtration instead of in memory filtering
     if (search) {
         cubes = cubes.filter(cube => cube.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
     };
