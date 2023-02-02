@@ -17,12 +17,12 @@ exports.postCreateCube = async (req, res) => {
 exports.getDetailsController = async (req, res) => {
     const cubeId = req.params.cubeId;
 
-    const cube = await Cube.findById(cubeId).lean();
+    const cube = await Cube.findById(cubeId).populate('accessories').lean();
 
     if (!cube) {
         return res.redirect('/404')
     }
-    res.render('details', { cube });
+    res.render('cube/details', { cube });
 };
 
 exports.getAttachAccessory = async (req, res) => {
