@@ -8,12 +8,13 @@ const accessorySchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: true,
-        validate: {
-            validator: function (v) {
-                return /^(http(s)?:\/\/)/.test(v);
-            },
-            message: props => `${props.value} url!`
-        }
+        match: [/^(http(s)?:\/\/)/, `Ivalid URL`],
+        // validate: {
+        //     validator: function (v) {
+        //         return /^(http(s)?:\/\/)/.test(v);
+        //     },
+        //     message: props => `${props.value} - Invalid URL!`
+        // }
     },
     description: {
         type: String,
