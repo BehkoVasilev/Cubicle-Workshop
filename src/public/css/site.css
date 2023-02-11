@@ -104,6 +104,9 @@ button, main a.btn {
     background: #607588;
     color: white;
 }
+.invalid {
+    text-align: center;
+}
 
 .details a.btn{
     width: 28%;
