@@ -7,13 +7,16 @@ const initDatabase = require('./config/initDatabase');
 const setupViewEngine = require('./config/viewEngine');
 // require('./config/viewEngine')(app);
 const routes = require('./routes');
+const authMiddleware = require('./middlewares/authMiddleware');
+
 
 const app = express();
 setupViewEngine(app);
 
 app.use(express.static("src/public"));
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }));
+app.use(authMiddleware.authentication);
 app.use(routes);
 
 initDatabase()
