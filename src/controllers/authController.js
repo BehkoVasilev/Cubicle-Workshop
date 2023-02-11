@@ -13,12 +13,13 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
-    try{
+    try {
         const token = await authService.login(username, password);
+        res.cookie('auth', token, { httpOnly: true })
         console.log(token);
         res.redirect('/');
-    }catch(err){
-        console.log(err);   
+    } catch (err) {
+        console.log(err);
         res.redirect('/invalid');
     }
 });
