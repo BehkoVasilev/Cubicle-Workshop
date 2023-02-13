@@ -130,6 +130,7 @@ a {
 
 div.details {
     display: block;
+    text-align: center;
     margin: auto;
     width: 50%;
     background-color: #f3f3f2;
