@@ -2,7 +2,7 @@ const jwt = require('../lib/jsonwebtoken');
 
 const User = require('../models/User');
 const config = require('../config/config');
-const { options } = require('../routes');
+
 
 // exports.getUserByUsername = async? (username) => {
 //     const user = await User.findOne({ username });
@@ -34,5 +34,7 @@ exports.login = async (username, password) => {
 };
 
 exports.logout = () => {
-    
+    res.clearCookie('auth');
+
+    res.redirect('/')
 }
