@@ -2,9 +2,11 @@ const Cube = require('../models/Cube');
 
 exports.createOne = (data) => new Cube(data)
 
-exports.getOne = (cubeId) => Cube.findById(cubeId).lean();
+exports.getOne = (cubeId) => Cube.findById(cubeId);
 
-exports.getOneAndPopulate = (cubeId) => Cube.findById(cubeId).populate('accessories').lean();
+exports.getOneAndPopulate = (cubeId) => Cube.findById(cubeId)
+.populate('accessories')
+.lean();
 
 exports.updateOne = (cubeId, data) => Cube.findByIdAndUpdate({_id: cubeId}, {...data});
 

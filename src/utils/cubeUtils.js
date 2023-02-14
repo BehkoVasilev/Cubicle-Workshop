@@ -1,4 +1,4 @@
-exports.generateDifficultyLevels = function(currentLevel) {
+exports.generateDifficultyLevels = function (currentLevel) {
 
     const difficultyLevels = [
         { key: 1, label: '1 - Very Easy', selected: false },
@@ -9,7 +9,7 @@ exports.generateDifficultyLevels = function(currentLevel) {
         { key: 6, label: '6 - Hardcore', selected: false },
     ];
 
-    const result = difficultyLevels.map(x => x.key === currentLevel ? {...x, selected: true} : x);
+    const result = difficultyLevels.map(x => x.key === currentLevel ? { ...x, selected: true } : x);
 
     return result
 }
