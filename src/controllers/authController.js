@@ -2,6 +2,8 @@ const authService = require('../service/authService');
 
 const router = require('express').Router();
 
+
+
 router.get('/invalid', (req, res) => {
     res.render('errors/invalidUser')
 });

@@ -2,6 +2,7 @@ const jwt = require('../lib/jsonwebtoken');
 
 const User = require('../models/User');
 const config = require('../config/config');
+const AppError = require('../utils/AppError');
 
 
 // exports.getUserByUsername = async? (username) => {
@@ -17,12 +18,12 @@ exports.login = async (username, password) => {
     const user = await this.getUserByUsername(username);
 
     if(user === null){
-        throw 'Invalid username or password'
+        throw new AppError('Invalid username!', {user});
     }
     const isValid = await user.validatePassword(password);
 
     if (!isValid) {
-        throw 'Invalid username or password'
+        throw new AppError('Invalid username!');
     }
 
     const payload = {_id: user._id, username: user.username};
