@@ -1,4 +1,5 @@
 const authService = require('../service/authService');
+const { parserMongooseErrors } = require('../utils/errorUtils');
 
 const router = require('express').Router();
 
@@ -23,7 +24,8 @@ router.post('/login', async (req, res) => {
     } catch (err) {
         console.log(err);
         // res.redirect('/invalid');
-        res.render('auth/login', { error: err.message })
+        const errors = parserMongooseErrors(err)
+        res.render('auth/login', { error: errors[0] })
     }
 });
 
@@ -42,11 +44,16 @@ router.post('/register', async (req, res, next) => {
     const existingUser = await authService.getUserByUsername(username);
 
     if (existingUser) {
-        return res.redirect('/404');
+        return res.render('auth/register', {error: `User already exists!`})
     }
 
-    const user = await authService.register(username, password);
-    console.log(user);
+    try{
+        const user = await authService.register(username, password);
+        console.log(user);
+    }catch(err){
+        const errors = parserMongooseErrors(err);
+        return res.render('auth/register', {error: errors[0]})
+    }
 
     res.redirect('/login')
 });

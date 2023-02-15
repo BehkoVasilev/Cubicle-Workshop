@@ -3,12 +3,16 @@ const mongoose = require("mongoose");
 const cubeSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        minLength: [5, 'Name must contain at least 5 characters'],
+        match: [/^[a-zA-Z0-9]+$/, 'Username should consist only of latin letters and digits!']
     },
     description: {
         type: String,
         required: true,
-        maxLenght: 200,
+        minLength: [20, 'Description must contain at least 20 characters'],
+        match: [/^[a-zA-Z0-9]+$/, 'Username should consist only of latin letters and digits!']
+
     },
     imageUrl: {
         type: String,

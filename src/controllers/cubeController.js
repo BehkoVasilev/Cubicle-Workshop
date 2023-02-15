@@ -2,6 +2,7 @@ const Accessory = require('../models/Accessory');
 
 const cubeService = require('../service/cubeService');
 const cubeUtils = require('../utils/cubeUtils');
+const { parserMongooseErrors } = require('../utils/errorUtils');
 
 exports.getCreateCube = (req, res) => {
     console.log(req.user)
@@ -12,16 +13,21 @@ exports.postCreateCube = async (req, res) => {
 
     const { name, description, imageUrl, difficultyLevel } = req.body;
 
-    let cube = await cubeService.createOne({
-        name,
-        description,
-        imageUrl,
-        difficultyLevel,
-        owner: req.user._id
-    });
+    try {
+        let cube = await cubeService.createOne({
+            name,
+            description,
+            imageUrl,
+            difficultyLevel,
+            owner: req.user._id
+        });
+        await cube.save();
+        res.redirect('/');
+    } catch (err) {
+        const errors = parserMongooseErrors(err);
+        return res.render('cube/create', { error: errors[0] })
+    }
 
-    await cube.save();
-    res.redirect('/');
 }
 
 exports.getDetailsController = async (req, res) => {
