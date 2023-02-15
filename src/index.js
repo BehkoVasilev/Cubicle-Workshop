@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 
 
 const config = require('./config/config');
+const errorHandler = require('./middlewares/errorHandlerMiddleware');
 const initDatabase = require('./config/initDatabase');
 const setupViewEngine = require('./config/viewEngine');
 // require('./config/viewEngine')(app);
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(authMiddleware.authentication);
 app.use(routes);
+app.use(errorHandler);
 
 initDatabase()
     .then(() => app.listen(config.PORT, () => console.log(`Server is running on port ${config.PORT}`)))
