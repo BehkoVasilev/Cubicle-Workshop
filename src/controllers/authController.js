@@ -22,7 +22,8 @@ router.post('/login', async (req, res) => {
         res.redirect('/');
     } catch (err) {
         console.log(err);
-        res.redirect('/invalid');
+        // res.redirect('/invalid');
+        res.render('auth/login', { error: err.message })
     }
 });
 

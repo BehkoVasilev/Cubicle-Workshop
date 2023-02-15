@@ -19,16 +19,20 @@
         <li><a href="/cubes/create">Add a Cube</a></li>
         <li><a href="/accessories/create">Add Accessory</a></li>
         <li><a href="/logout">Logout</a></li>
-        <li style="margin-left: 40px;"><h3>Welcome {{username}}</h3></li>
+        <li style="margin-left: 40px;">
+          <h3>Welcome {{username}}</h3>
+        </li>
         {{else}}
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Register</a></li>
         {{/if}}
       </ul>
     </header>
+    {{#if error}}
     <div id="notifications">
-      <p id="notification-message">some error</p>
+      <p id="notification-message">{{error}}</p>
     </div>
+    {{/if}}
     {{{body}}}
   </div>
   <footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
